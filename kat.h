@@ -28,7 +28,7 @@ int katcreate(const char *path) {
     return 0; // success
 }
 
-/// Appends a key=val to file.
+// Appends a key=val to file
 int katadd(const char *key, const char *val, const char *path) {
     FILE *f = fopen(path, "a");
     if (f) {
@@ -39,6 +39,7 @@ int katadd(const char *key, const char *val, const char *path) {
     return 1;
 }
 
+// Appends a comment to file
 int kataddcomment(const char *str, const char *path) {
     FILE *f = fopen(path, "a");
     if (f) {
@@ -49,6 +50,7 @@ int kataddcomment(const char *str, const char *path) {
     return 1;
 }
 
+// Reads a key from file
 int katreadkey(const char *key, const char *path, char *buffer, size_t bufsize) {
     FILE *f = fopen(path, "r");
     if (!f) return 1;
@@ -76,6 +78,7 @@ int katreadkey(const char *key, const char *path, char *buffer, size_t bufsize) 
     return 1;
 }
 
+// Deletes a key from file
 int katdelkey(const char *key, const char *path) {
     FILE *f = fopen(path, "r");
     if (!f) return 1;
@@ -115,6 +118,7 @@ int katdelkey(const char *key, const char *path) {
     return deleted ? 0 : 1; // 0 if deleted, 1 if not found
 }
 
+// Edits a key's value from file
 int kateditkey(const char *key, const char *new_val, const char *path) {
     FILE *f = fopen(path, "r");
     if (!f) return 1;
